@@ -1,0 +1,238 @@
+$primary-border-radius: 9px
+$primary-padding: 1em
+$dollar-background: #60BC63
+$primary: #0077FF
+$dark: #000
+@mixin boarder-styles
+  border-radius: $primary-border-radius
+  padding: $primary-padding
+  font-weight: bold
+  color: white
+.sidebar 
+  font-family: 'Inter', sans-serif
+  padding: 1.5em
+  margin: 0
+  height: 100%
+  top: 128px
+  right: 0
+  position: fixed
+  z-index: 2
+  color: #3F4765
+  background: white
+.balance
+  display: flex
+  font-size: 25px
+  justify-content: space-between
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3)
+.display__flex
+  display: flex
+  justify-content: space-between
+.button__add
+  background: white
+  border: 3px solid #ECEFF9
+  width: 40px
+  height: 40px
+  border-radius: 25px
+.button__add:hover
+  cursor: pointer
+.dollar__board
+  background: $dollar-background
+  color: white
+  font-weight: bold
+  margin-right: 20px
+  margin-top: 20px
+  width: 145px
+  @include boarder-styles
+.bitcoin__board
+  margin-top: 20px
+  background: #FF8933
+  @include boarder-styles
+.input__money
+  display: flex
+  
+.inp
+  position: relative
+  margin: auto
+  width: 100%
+  max-width: 280px
+  border-radius: 3px
+  overflow: hidden
+
+  .label
+    position: absolute
+    top: 20px
+    left: 12px
+    font-size: 16px
+    color: rgba($dark,.5)
+    font-weight: 500
+    transform-origin: 0 0
+    transform: translate3d(0,0,0)
+    transition: all .2s ease
+    pointer-events: none
+
+  .focus__bg
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba($dark,.05)
+    z-index: -1
+    transform: scaleX(0)
+    transform-origin: left
+
+  input
+    -webkit-appearance: none
+    appearance: none
+    width: 100%
+    border: 0
+    font-family: inherit
+    padding: 16px 12px 0 12px
+    height: 56px
+    font-size: 16px
+    font-weight: 400
+    background: rgba($dark,.02)
+    box-shadow: inset 0 -1px 0 rgba($dark,.3)
+    color: $dark
+    transition: all .15s ease
+
+    &:hover
+      background: rgba($dark,.04)
+      box-shadow: inset 0 -1px 0 rgba($dark,.5)
+    
+    &:not(:placeholder-shown)
+      + .label
+        color: rgba($dark,.5)
+        transform: translate3d(0,-12px,0) scale(.75)
+    
+    &:focus
+      background: rgba($dark,.05)
+      outline: none
+      box-shadow: inset 0 -2px 0 $dollar-background
+      + .label
+        color: $dollar-background
+        transform: translate3d(0,-12px,0) scale(.75)
+        + .focus-bg
+          transform: scaleX(1)
+          transition: all .1s ease
+  .focus__bg
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba($dark,.05)
+    z-index: -1
+    transform: scaleX(0)
+    transform-origin: left
+
+  input
+    -webkit-appearance: none
+    appearance: none
+    width: 100%
+    border: 0
+    font-family: inherit
+    padding: 16px 12px 0 12px
+    height: 56px
+    font-size: 16px
+    font-weight: 400
+    background: rgba($dark,.02)
+    box-shadow: inset 0 -1px 0 rgba($dark,.3)
+    color: $dark
+    transition: all .15s ease
+
+    &:hover
+      background: rgba($dark,.04)
+      box-shadow: inset 0 -1px 0 rgba($dark,.5)
+    
+    &:not(:placeholder-shown)
+      + .label
+        color: rgba($dark,.5)
+        transform: translate3d(0,-12px,0) scale(.75)
+    
+    &:focus
+      background: rgba($dollar-background,.05)
+      outline: none
+      box-shadow: inset 0 -2px 0 $dollar-background
+      + .label
+        color: $dollar-background
+        transform: translate3d(0,-12px,0) scale(.75)
+        + .focus-bg
+          transform: scaleX(1)
+          transition: all .1s ease
+.wrapper
+  display: flex
+  margin-top: 1em
+  cursor: pointer
+.link_wrapper
+  position: relative
+
+.link__a
+  display: block
+  width: 250px
+  height: 50px
+  line-height: 50px
+  font-weight: bold
+  text-decoration: none
+  background: $dollar-background
+  text-align: center
+  color: #fff
+
+  letter-spacing: 1px
+  border: 3px solid $dollar-background
+  transition: all .35s
+
+.icon
+  width: 50px
+  height: 50px
+  border: 3px solid transparent
+  position: absolute
+  transform: rotate(45deg)
+  right: 0
+  top: 0
+  z-index: -1
+  transition: all .35s
+
+.icon svg
+  width: 30px
+  position: absolute
+  top: calc(50% - 15px)
+  left: calc(50% - 15px)
+  transform: rotate(-45deg)
+  fill: #2ecc71
+  transition: all .35s
+
+.link__a:hover
+  width: 200px
+  border: 3px solid #2ecc71
+  background: transparent
+  color: #2ecc71
+
+.link__a:hover + .icon
+  border: 3px solid #2ecc71
+  right: -25%
+.withdraw
+  margin-top: 20px
+  background: white
+  color: $dollar-background
+  border: 2px solid $dollar-background
+  font-weight: bold
+  width: 145px
+  padding: 0.5em
+  border-radius: 15px
+.withdraw:hover
+  cursor: pointer
+.deposit
+  margin-top: 20px
+  background: $dollar-background
+  color: white
+  border: 2px solid $dollar-background
+  font-weight: bold
+  width: 145px
+  padding: 0.5em
+  border-radius: 15px
+.deposit:hover
+  cursor: pointer
+.amount__money
+  margin-top: 15px
+  width: 350px
