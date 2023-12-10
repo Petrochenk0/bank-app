@@ -5,8 +5,10 @@ import Logo from '/public/Logo.png';
 import Image from 'next/image';
 import { FilterContext } from '../Context/FilterContext';
 import Link from 'next/link';
+
 const title = 'Brypto';
 const name = 'Nikita!';
+
 const Header = (): React.ReactNode => {
   const { valueInInput, setValueInInput } = React.useContext(FilterContext);
   const changeValueInInput = (event: React.ChangeEvent<HTMLInputElement>) => {
