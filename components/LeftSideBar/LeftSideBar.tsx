@@ -38,5 +38,3 @@ const LeftSideBar = () => {
   );
 };
 export default LeftSideBar;
-// Таска:
-// 1) Нужно сделать border не только при наведении на слово, но и на всю 100% ширину
