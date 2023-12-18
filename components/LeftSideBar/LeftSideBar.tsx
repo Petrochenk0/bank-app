@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Banner from './../../public/Banner.png';
 import styles from './styles.module.sass';
 import Image from 'next/image';
+
 const LeftSideBar = () => {
   return (
     <div className={styles.sidebar}>
