@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Banner from './../../public/Banner.png';
 import styles from './styles.module.sass';
 import Image from 'next/image';
+
 const LeftSideBar = () => {
   return (
     <div className={styles.sidebar}>
@@ -38,5 +39,3 @@ const LeftSideBar = () => {
   );
 };
 export default LeftSideBar;
-// Таска:
-// 1) Нужно сделать border не только при наведении на слово, но и на всю 100% ширину
