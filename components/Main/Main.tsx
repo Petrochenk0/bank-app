@@ -1,4 +1,5 @@
 import React from 'react';
+import Growth from './Growth/Growth';
 import FirstGraph from './../../public/FirstGraph.png';
 import SecondGraph from './../../public/SecondGraph.png';
 import ThirdGraph from './../../public/ThirdGraph.png';
@@ -63,6 +64,7 @@ function Main() {
           </div>
         ))}
       </div>
+      <Growth />
     </div>
   );
 }
