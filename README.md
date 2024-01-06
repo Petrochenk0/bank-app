@@ -13,7 +13,7 @@ https://github.com/Petrochenk0/Bank-app-on-NEXT/issues/1#issue-2032772312
 1. Склонируйте репозиторий:
 
     ```bash
-    git clone https://github.com/your-username/banking-app.git
+    git clone https://github.com/Petrochenk0/banking-app.git
     ```
 
 2. Перейдите в директорию проекта:
