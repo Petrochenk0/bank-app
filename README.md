@@ -66,7 +66,3 @@ https://github.com/Petrochenk0/Bank-app-on-NEXT/issues/1#issue-2032772312
 ## Вклад в проект 🤝
 
 Если у вас есть предложения по улучшению или вы нашли ошибку, пожалуйста, создайте [issue](https://github.com/your-username/banking-app/issues) или отправьте [pull request](https://github.com/your-username/banking-app/pulls).
-
-## Лицензия 📝
-
-Этот проект лицензирован под [MIT License](LICENSE).
