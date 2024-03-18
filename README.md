@@ -1,68 +1,23 @@
-https://github.com/Petrochenk0/Bank-app-on-NEXT/issues/1#issue-2032772312
-# Банковское приложение на Next.js, React и TypeScript 🏦
+# Banking application on Next.js, React and TypeScript 🏦
 
-Добро пожаловать в репозиторий банковского приложения, разработанного с использованием Next.js, React и TypeScript. Это приложение предоставляет удобный интерфейс для управления банковскими счетами, проведения транзакций и мониторинга финансов.
+Welcome to **BANK application**, your ultimate banking application powered by NEXT, TypeScript, React Context, and SASS! Experience seamless financial management with a range of features to enhance your banking experience.
 
-## Требования 🚀
+## Features
 
-- [Node.js](https://nodejs.org/) (рекомендуется использовать LTS версию)
-- [npm](https://www.npmjs.com/) или [Yarn](https://yarnpkg.com/)
+- 💳 Balance Top-Up: Easily add funds to your account for seamless transactions.
+- 🔍 Cryptocurrency Search: Explore and track various cryptocurrencies within the app.
+- 🛣️ Category Routing: Navigate through different banking categories with ease.
+- 💸 Balance Deduction: Manage your expenses by deducting from your balance.
 
-## Установка 🛠️
+## Technologies Used
 
-1. Склонируйте репозиторий:
+- # NEXT.js: A powerful React framework for server-side rendering.
+- # TypeScript: Enhances code quality and developer productivity.
+- # React Context: Simplifies state management across components.
+- # SASS: Provides a structured approach to styling for a sleek UI.
 
-    ```bash
-    git clone https://github.com/Petrochenk0/banking-app.git
-    ```
+## Contributing
 
-2. Перейдите в директорию проекта:
+We welcome contributions from the community to improve! Feel free to submit bug reports, feature requests, or pull requests to make the app even better.
 
-    ```bash
-    cd banking-app
-    ```
-
-3. Установите зависимости:
-
-    ```bash
-    npm install
-    ```
-
-    или
-
-    ```bash
-    yarn install
-    ```
-
-## Запуск 🚀
-
-1. Запустите локальный сервер для разработки:
-
-    ```bash
-    npm run dev
-    ```
-
-    или
-
-    ```bash
-    yarn dev
-    ```
-
-2. Откройте приложение в вашем браузере по адресу [http://localhost:3000](http://localhost:3000).
-
-## Функциональности 🎉
-
-- Отображение списка банковских счетов
-- Проведение транзакций между счетами
-- Мониторинг истории транзакций
-- ...
-
-## Технологии 🛠️
-
-- [Next.js](https://nextjs.org/) - Фреймворк React для разработки веб-приложений
-- [React](https://reactjs.org/) - Библиотека для создания пользовательских интерфейсов
-- [TypeScript](https://www.typescriptlang.org/) - Статически типизированный язык программирования
-
-## Вклад в проект 🤝
-
-Если у вас есть предложения по улучшению или вы нашли ошибку, пожалуйста, создайте [issue](https://github.com/your-username/banking-app/issues) или отправьте [pull request](https://github.com/your-username/banking-app/pulls).
+Manage your finances like a pro with this **BANK application**! 🚀💳💻
