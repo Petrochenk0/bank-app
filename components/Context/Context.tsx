@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { createContext } from 'react';
+
+interface MyContextProviderProps {
+  children: ReactNode;
+}
 
 export const MyContext = createContext<any>(null);
 
-export const MyContextProvider: React.FC = ({ children }: any) => {
+export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }) => {
   const [amountOfMoney, setAmountOfMoney] = React.useState<any>('');
   const [plusOfMoney, setPlusOfMoney] = React.useState(false);
   const [inputValue, setInputValue] = React.useState('');
