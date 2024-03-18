@@ -11,10 +11,10 @@ Welcome to **BANK application**, your ultimate banking application powered by NE
 
 ## Technologies Used
 
-- # NEXT.js: A powerful React framework for server-side rendering.
-- # TypeScript: Enhances code quality and developer productivity.
-- # React Context: Simplifies state management across components.
-- # SASS: Provides a structured approach to styling for a sleek UI.
+# NEXT.js: A powerful React framework for server-side rendering.
+# TypeScript: Enhances code quality and developer productivity.
+# React Context: Simplifies state management across components.
+# SASS: Provides a structured approach to styling for a sleek UI.
 
 ## Contributing
 
