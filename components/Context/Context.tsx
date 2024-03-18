@@ -4,10 +4,9 @@ import { createContext } from 'react';
 export const MyContext = createContext<any>(null);
 
 export const MyContextProvider: React.FC = ({ children }: any) => {
-  const [amountOfMoney, setAmountOfMoney] = React.useState('');
+  const [amountOfMoney, setAmountOfMoney] = React.useState<any>('');
   const [plusOfMoney, setPlusOfMoney] = React.useState(false);
   const [inputValue, setInputValue] = React.useState('');
-  // Нужно теперь добавить функцию которая будет списывать деньги при выводе
   const [show, setShow] = React.useState(false);
   const [inputValueWithdraw, setInputValueWithdraw] = React.useState('');
   const [resultWithdraw, setResultWithdraw] = React.useState('');
