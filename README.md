@@ -16,7 +16,7 @@ Welcome to **BANK application**, your ultimate banking application powered by NE
 - React Context: Simplifies state management across components.
 - SASS: Provides a structured approach to styling for a sleek UI.
   
-## The following features to be added
+## Features that are in development and will be added soon
 - Podman: This application will be packaged in a container
 - Node: A Postgres database backend will be bolted to this application
 - Redux-toolkit: Context Api will be replaced by a cooler state manager
