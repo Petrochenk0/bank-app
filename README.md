@@ -18,7 +18,7 @@ Welcome to **BANK application**, your ultimate banking application powered by NE
   
 ## Features that are in development and will be added soon
 - Podman: This application will be packaged in a container
-- Node: A Postgres database backend will be bolted to this application
+- Node: A PostgreSQL database backend will be bolted to this application
 - Redux-toolkit: Context Api will be replaced by a cooler state manager
 
 ## Contributing
