@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #eceff9;
+  font-family: 'Poppins', sans-serif 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.justify__center {
+  text-align: center;
+  justify-content: center;
+}
