@@ -1,4 +1,4 @@
-# Banking application on Next.js, React and TypeScript 🏦
+# Banking application on Next.js / React / TypeScript / Nest / PostgreSQL 🏦
 
 Welcome to **BANK application**, your ultimate banking application powered by NEXT, TypeScript, React Context, and SASS! Experience seamless financial management with a range of features to enhance your banking experience.
 
