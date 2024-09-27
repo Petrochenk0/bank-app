@@ -14,9 +14,9 @@ export class AuthService {
     // Проверяем, существует ли пользователь с таким логином.
     const user = await this.usersService.findOne(username);
     // Если пользователь найден и его пароль соответствует введённому (сравниваем с хешем), возвращаем данные пользователя.
-    if (user && (await bcrypt.compare(pass, user.password))) {
+    if (user && user.password && (await bcrypt.compare(pass, user.password))) {
       const { password, ...result } = user; // Убираем пароль из ответа.
-      return result;
+      return result; // Возвращаем данные пользователя без пароля.
     }
     return null; // Если пользователь не найден или пароль неверен, возвращаем null.
   }

@@ -12,7 +12,11 @@ export class UsersService {
 
   async findOne(username: string): Promise<User | undefined> {
     // Ищем пользователя в базе данных по логину.
-    return this.usersRepository.findOneBy({ username });
+    const user = await this.usersRepository.findOneBy({ username });
+    if (!user) {
+      throw new Error('User not found'); // Обрабатываем ошибка если пользователя нет
+    }
+    return user;
   }
 
   async create(username: string, password: string): Promise<User> {

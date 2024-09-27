@@ -1,13 +1,13 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'; // Импортируем декораторы для создания сущности.
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity() // Указываем, что это таблица базы данных.
+@Entity() // Указываем, что это сущность базы данных
 export class User {
-  @PrimaryGeneratedColumn() // Определяем, что это поле — автоинкрементируемый первичный ключ.
-  id: number;
+  @PrimaryGeneratedColumn() // Автоматическая генерация ID
+  id?: number; // Сделано необязательным
 
-  @Column({ unique: true }) // Определяем колонку для логина, которая будет уникальной.
-  username: string;
+  @Column() // Столбец для хранения имени пользователя
+  username?: string; // Сделано необязательным
 
-  @Column() // Определяем колонку для пароля (без дополнительных параметров).
-  password: string;
+  @Column() // Столбец для хранения пароля
+  password?: string; // Сделано необязательным
 }

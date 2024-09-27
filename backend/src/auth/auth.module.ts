@@ -5,9 +5,13 @@ import { JwtModule } from '@nestjs/jwt'; // Импортируем модуль 
 import { PassportModule } from '@nestjs/passport'; // Импортируем модуль Passport для обработки стратегии авторизации.
 import { JwtStrategy } from './jwt.strategy'; // Импортируем стратегию для работы с JWT.
 import { UsersModule } from '../users/users.module'; // Импортируем модуль для работы с пользователями.
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true, // Делает ConfigModule доступным глобально по всему приложению
+    }),
     UsersModule, // Подключаем модуль пользователей для работы с базой данных пользователей.
     PassportModule, // Подключаем Passport для авторизации.
     JwtModule.register({
