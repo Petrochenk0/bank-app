@@ -1,17 +1,28 @@
 'use client';
 import React from 'react';
-import { Router, useRouter } from 'next/router';
+import styles from './styles.module.sass';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-
+import { MyContext } from '@/store/Context';
 import { message } from 'antd';
 
-import styles from './styles.module.sass';
 export const LoginComponent = (): React.ReactNode => {
+  const context = React.useContext(MyContext);
+
+  if (!context) {
+    throw new Error('MyContext must be used within a MyContextProvider');
+  }
+
+  const { updateUsername } = context;
+
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
+  const router = useRouter();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log('Attempting login with:', username, password);
     try {
       const response = await fetch('http://localhost:3001/auth/login', {
         method: 'POST',
@@ -21,7 +32,9 @@ export const LoginComponent = (): React.ReactNode => {
         body: JSON.stringify({ username, password }),
       });
       if (response.ok) {
-        const data = await response.json(); // позже сюда нужно будет добавить переключение на главную страницу
+        const data = await response.json();
+        updateUsername(data.username);
+        router.push('/');
         message.success('Успешная авторизация!');
         console.log(data);
       } else {

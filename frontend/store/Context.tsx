@@ -1,3 +1,5 @@
+'use client';
+import { message } from 'antd';
 import React, { ReactNode } from 'react';
 import { createContext } from 'react';
 
@@ -14,6 +16,17 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
   const [show, setShow] = React.useState(false);
   const [inputValueWithdraw, setInputValueWithdraw] = React.useState('');
   const [resultWithdraw, setResultWithdraw] = React.useState('');
+  const [username, setUsername] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedUsername = localStorage.getItem('username');
+      if (storedUsername) {
+        setUsername(storedUsername);
+      }
+    }
+  }, []);
+
   const changeInputValueWithdraw = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValueWithdraw(event.target.value);
   };
@@ -25,6 +38,7 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
   };
   const addMoney = () => {
     setAmountOfMoney(inputValue);
+    message.success('The money has been successfully replenished 💰');
     setInputValue('');
   };
 
@@ -38,7 +52,23 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
       (prevAmountOfMoney - parseInt(inputValueWithdraw)).toString(),
     );
     setInputValueWithdraw('');
-    console.log('success 🎉');
+    message.success('Successful transfer of loan to assets 🎉');
+  };
+
+  const updateUsername = (newUsername: string) => {
+    console.log('Updating username:', newUsername);
+    setUsername(newUsername);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('username', newUsername);
+    }
+  };
+
+  const logout = () => {
+    setUsername('');
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('username', '');
+    }
+    message.success('User successfully logged out');
   };
 
   return (
@@ -58,6 +88,9 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
         inputValueWithdraw,
         changeInputValueWithdraw,
         transferOfMoney,
+        username,
+        updateUsername,
+        logout,
       }}>
       {children}
     </MyContext.Provider>

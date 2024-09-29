@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i')
+
 .navigation 
   display: flex
   align-items: center
@@ -8,11 +10,14 @@
 .display__flex 
   display: flex
   align-items: center
+  width: 100%
 .title
   font-size: 30px
 .user
   margin-right: 30px
   font-size: 30px
+  white-space: nowrap
+
 .input__search 
   border: 1px solid #ccc
   padding: 20px
@@ -24,9 +29,12 @@
   font-size: 16px
   outline: none
   border: none
-  width: 700px
+  width: 100% 
+  flex-grow: 1
+  margin-right: 5em
   color: #8488B7
   background: #F4F6F8
+
 .input__search:focus
   outline: none
   border: none
@@ -44,12 +52,10 @@
   display: flex
   margin-left: 350px
   align-items: center
-  
-@import url('https://fonts.googleapis.com/css?family=Poppins:900i')
 
 .wrapper 
   display: flex
-  margin-left: 7em
+  margin-left: auto
 
 .cta 
   display: flex

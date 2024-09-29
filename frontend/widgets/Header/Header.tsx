@@ -3,22 +3,40 @@ import React from 'react';
 import styles from './styles.module.sass';
 import Logo from '/public/Logo.png';
 import Image from 'next/image';
-import { FilterContext } from '@/components/Context/FilterContext';
+import { FilterContext } from '@/store/FilterContext';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { MyContext } from '@/store/Context';
+import { message } from 'antd';
+import ButtonLogOut from '@/components/Button/ButtonLogOut';
 
 const title = 'Brypto';
-const name = 'Nikita!';
 
 const Header = (): React.ReactNode => {
+  const { username, logout } = React.useContext(MyContext) || {};
   const { valueInInput, setValueInInput } = React.useContext(FilterContext);
+
+  const router = useRouter();
+
   const changeValueInInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValueInInput(event.target.value);
   };
+
   const brunch = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       console.log(valueInInput);
     }
   };
+
+  const handleLogout = () => {
+    logout();
+    router.push('/login');
+  };
+
+  React.useEffect(() => {
+    console.log(username);
+  }, [username]);
+
   return (
     <FilterContext.Provider
       value={{
@@ -33,13 +51,19 @@ const Header = (): React.ReactNode => {
             <h1 className={styles.title}>{title}</h1>
           </div>
           <span className={styles.user}>
-            <h1>Welcome back, {name}</h1>
+            <h1>{username ? `Welcome back ${username}` : 'Welcome Guest'}</h1>
           </span>
           <input className={styles.input__search} type="text" placeholder="Search..." />
-
-          <div className={styles.wrapper}>
+        </div>
+        <div className={styles.wrapper}>
+          {username ? (
+            <div onClick={handleLogout}>
+              <ButtonLogOut />
+            </div>
+          ) : (
             <Link className={styles.cta} href="/login">
               <span className={styles.span}>Login</span>
+
               <span className={styles.span}>
                 <svg
                   width="66px"
@@ -64,7 +88,7 @@ const Header = (): React.ReactNode => {
                 </svg>
               </span>
             </Link>
-          </div>
+          )}
         </div>
       </nav>
     </FilterContext.Provider>

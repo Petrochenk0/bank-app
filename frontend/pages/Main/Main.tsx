@@ -5,7 +5,8 @@ import SecondGraph from './../../public/SecondGraph.png';
 import ThirdGraph from './../../public/ThirdGraph.png';
 import Image from 'next/image';
 import styles from './styles.module.sass';
-import { FilterContext } from '@/components/Context/FilterContext';
+import { FilterContext } from '@/store/FilterContext';
+
 interface ICryptoCurrency {
   title: string;
   price: number;
@@ -21,8 +22,8 @@ function getImageUrl(cryptoArgumentInFunction: any) {
   }
 }
 function Main() {
-  const { filterCrypto } = React.useContext(FilterContext);
   const [newValueInInput, setNewValueInInput] = React.useState('');
+  const { filterCrypto } = React.useContext(FilterContext);
   const newFunctionChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewValueInInput(event.target.value);
   };

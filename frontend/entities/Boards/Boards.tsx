@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../widgets/RightSideBar/styles.module.sass';
-import { MyContext } from '@/components/Context/Context';
+import { MyContext } from '@/store/Context';
 export const Boards = () => {
   const { showInput, show, inputValueWithdraw, changeInputValueWithdraw, transferOfMoney } =
     React.useContext(MyContext);

@@ -2,15 +2,18 @@
 import React from 'react';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { message } from 'antd';
 
 import styles from './styles.module.sass';
 
-function Registr() {
+function Register() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [repeatPassword, setReapetPassword] = React.useState('');
+
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,6 +31,7 @@ function Registr() {
       });
       if (response.ok) {
         message.success('Registration was successful! Congratulations!');
+        router.push('/');
       } else {
         message.error('Registration error. try again!');
       }
@@ -88,4 +92,4 @@ function Registr() {
   );
 }
 
-export default Registr;
+export default Register;
