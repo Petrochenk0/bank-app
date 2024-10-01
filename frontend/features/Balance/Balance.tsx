@@ -1,17 +1,44 @@
 import React from 'react';
 import styles from '../../widgets/RightSideBar/styles.module.sass';
 import { MyContext } from '@/store/Context';
+import { message } from 'antd';
+import axios from 'axios';
 export const Balance = (): React.ReactNode => {
   const {
+    username,
+    balance,
     amountOfMoney,
     setAmountOfMoney,
     plusOfMoney,
     setPlusOfMoney,
     inputValue,
     setInputValue,
-    addMoney,
     changeValueInInput,
+    fetchBalanceAndHistory,
+    updateBalance,
   } = React.useContext(MyContext);
+
+  const addMoney = async () => {
+    try {
+      await updateBalance(inputValue, 'deposit');
+      message.success('The money has been successfully replenished 💰');
+
+      await fetchBalanceAndHistory();
+
+      console.log('Updated amount:', amountOfMoney);
+
+      setInputValue('');
+      setPlusOfMoney(false);
+    } catch (error) {
+      console.error('Add money error', error);
+      message.error('Error adding money, please try again.');
+    }
+  };
+
+  React.useEffect(() => {
+    fetchBalanceAndHistory();
+  }, [amountOfMoney]);
+
   return (
     <div>
       <div className={styles.display__flex}>

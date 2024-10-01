@@ -2,6 +2,7 @@
 import { message } from 'antd';
 import React, { ReactNode } from 'react';
 import { createContext } from 'react';
+import axios from 'axios';
 
 interface MyContextProviderProps {
   children: ReactNode;
@@ -17,6 +18,8 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
   const [inputValueWithdraw, setInputValueWithdraw] = React.useState('');
   const [resultWithdraw, setResultWithdraw] = React.useState('');
   const [username, setUsername] = React.useState<string | null>(null);
+  const [balance, setBalance] = React.useState(0);
+  const [transitionHistory, setTransitionHistory] = React.useState([]);
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -71,6 +74,54 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
     message.success('User successfully logged out');
   };
 
+  const fetchBalanceAndHistory = async () => {
+    try {
+      console.log('Fetching balance for user:', username); // Логируем username
+
+      const response = await fetch(`http://localhost:3001/api/balance/${username}`, {
+        method: 'GET',
+      });
+
+      console.log('Response status:', response.status); // Логируем статус ответа
+
+      if (!response.ok) {
+        throw new Error(`Error fetching balance and history: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log('Fetched data:', data); // Логируем данные, которые вернул сервер
+
+      setAmountOfMoney(data.balance);
+      setTransitionHistory(data.history);
+    } catch (error) {
+      console.error('fetchBalanceAndHistory Error:', error); // Логируем ошибку
+    }
+  };
+
+  const updateBalance = async (amount, type) => {
+    try {
+      const response = await fetch(`http://localhost:3001/api/balance/transaction`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: amount,
+          type: type,
+          username: username,
+        }),
+      });
+
+      if (!response.ok) {
+        message.error('error with update balance');
+      }
+
+      fetchBalanceAndHistory();
+    } catch (error) {
+      console.error('updateBalance: ', error);
+    }
+  };
+
   return (
     <MyContext.Provider
       value={{
@@ -91,6 +142,10 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
         username,
         updateUsername,
         logout,
+        balance,
+        transitionHistory,
+        updateBalance,
+        fetchBalanceAndHistory,
       }}>
       {children}
     </MyContext.Provider>

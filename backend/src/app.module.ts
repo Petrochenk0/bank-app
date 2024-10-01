@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common'; // Импортируем декора�
 import { TypeOrmModule } from '@nestjs/typeorm'; // Импортируем модуль TypeORM для работы с базой данных.
 import { AuthModule } from './auth/auth.module'; // Импортируем модуль авторизации.
 import { UsersModule } from './users/users.module'; // Импортируем модуль пользователей.
+import { BalanceModule } from './balance/balance.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { UsersModule } from './users/users.module'; // Импортируем м
     }),
     AuthModule, // Подключаем модуль авторизации.
     UsersModule, // Подключаем модуль пользователей.
+    BalanceModule, // Модуль баланса.
   ],
 })
 export class AppModule {} // Экспортируем главный модуль приложения.

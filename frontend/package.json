@@ -16,6 +16,7 @@
     "@nestjs/typeorm": "^10.0.2",
     "@reduxjs/toolkit": "^2.2.7",
     "antd": "^5.21.1",
+    "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
     "next": "14.0.3",
     "passport": "^0.7.0",
