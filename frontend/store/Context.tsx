@@ -48,15 +48,6 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
   const changeValueInInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
-  const transferOfMoney = () => {
-    setResultWithdraw((amountOfMoney - parseInt(inputValueWithdraw)).toString());
-    console.log(resultWithdraw);
-    setAmountOfMoney((prevAmountOfMoney: any) =>
-      (prevAmountOfMoney - parseInt(inputValueWithdraw)).toString(),
-    );
-    setInputValueWithdraw('');
-    message.success('Successful transfer of loan to assets 🎉');
-  };
 
   const updateUsername = (newUsername: string) => {
     console.log('Updating username:', newUsername);
@@ -76,8 +67,6 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
 
   const fetchBalanceAndHistory = async () => {
     try {
-      console.log('Fetching balance for user:', username); // Логируем username
-
       const response = await fetch(`http://localhost:3001/api/balance/${username}`, {
         method: 'GET',
       });
@@ -119,6 +108,38 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
       fetchBalanceAndHistory();
     } catch (error) {
       console.error('updateBalance: ', error);
+    }
+  };
+
+  const transferOfMoney = async () => {
+    try {
+      if (parseInt(inputValueWithdraw) > amountOfMoney) {
+        message.error('Not enough money ебать 😤');
+        return;
+      }
+
+      const response = await fetch('http://localhost:3001/api/balance/transaction', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: inputValueWithdraw,
+          type: 'withdraw',
+          username: username,
+        }),
+      });
+
+      if (!response.ok) {
+        message.error('Error with withdraw 💀');
+      }
+
+      fetchBalanceAndHistory();
+      setInputValueWithdraw('');
+      message.success('Withdrawal successful 🎉');
+    } catch (error) {
+      message.error('Error withdrawing money, please try again 😵‍💫');
+      console.error('error withdraw', error);
     }
   };
 
