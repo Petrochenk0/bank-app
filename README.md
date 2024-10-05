@@ -3,12 +3,12 @@
 Welcome to **BANK application**, your ultimate banking application powered by NEXT, TypeScript, React Context, and SASS! Experience seamless financial management with a range of features to enhance your banking experience.
 
 ## Features
-
+- 👨‍💻 You can register and log in 
 - 💳 Balance Top-Up: Easily add funds to your account for seamless transactions.
 - 🔍 Cryptocurrency Search: Explore and track various cryptocurrencies within the app.
 - 🛣️ Category Routing: Navigate through different banking categories with ease.
 - 💸 Balance Deduction: Manage your expenses by deducting from your balance.
-
+- 🛒 View your transaction history
 ## Technologies Used
 
 - NEXT.js: A powerful React framework for server-side rendering.
