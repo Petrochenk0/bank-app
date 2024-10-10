@@ -19,7 +19,7 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
   const [resultWithdraw, setResultWithdraw] = React.useState('');
   const [username, setUsername] = React.useState<string | null>(null);
   const [balance, setBalance] = React.useState(0);
-  const [transitionHistory, setTransitionHistory] = React.useState([]);
+  const [transactionHistory, setTransactionHistory] = React.useState([]);
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -39,6 +39,7 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
     setShow(!show);
     console.log(amountOfMoney);
   };
+
   const addMoney = () => {
     setAmountOfMoney(inputValue);
     message.success('The money has been successfully replenished 💰');
@@ -71,19 +72,23 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
         method: 'GET',
       });
 
-      console.log('Response status:', response.status); // Логируем статус ответа
+      console.log('Response status:', response.status);
 
       if (!response.ok) {
         throw new Error(`Error fetching balance and history: ${response.statusText}`);
       }
 
       const data = await response.json();
-      console.log('Fetched data:', data); // Логируем данные, которые вернул сервер
+      console.log('Fetched data:', data);
 
       setAmountOfMoney(data.balance);
-      setTransitionHistory(data.history);
+      setTransactionHistory((prevHistory) => {
+        console.log('Previous history:', prevHistory);
+        console.log('New history:', data.history);
+        return data;
+      });
     } catch (error) {
-      console.error('fetchBalanceAndHistory Error:', error); // Логируем ошибку
+      console.error('fetchBalanceAndHistory Error:', error);
     }
   };
 
@@ -135,11 +140,26 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
       }
 
       fetchBalanceAndHistory();
+
       setInputValueWithdraw('');
       message.success('Withdrawal successful 🎉');
     } catch (error) {
       message.error('Error withdrawing money, please try again 😵‍💫');
       console.error('error withdraw', error);
+    }
+  };
+
+  const fetchTransactionHistory = async () => {
+    try {
+      const response = await fetch(`http://localhost:3001/api/balance/history/${username}`);
+      if (!response.ok) {
+        message.error('Error with history transaction');
+        return;
+      }
+      const data = await response.json();
+      setTransactionHistory(data.history);
+    } catch (error) {
+      console.error('fetchTransactionHistory', error);
     }
   };
 
@@ -164,9 +184,11 @@ export const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }
         updateUsername,
         logout,
         balance,
-        transitionHistory,
+        transactionHistory,
         updateBalance,
+        setTransactionHistory,
         fetchBalanceAndHistory,
+        fetchTransactionHistory,
       }}>
       {children}
     </MyContext.Provider>

@@ -6,6 +6,7 @@ import ThirdGraph from './../../public/ThirdGraph.png';
 import Image from 'next/image';
 import styles from './styles.module.sass';
 import { FilterContext } from '@/store/FilterContext';
+import CalcutaionCoin from '@/widgets/CalculationCoin/CalculationCoin';
 
 interface ICryptoCurrency {
   title: string;
@@ -57,7 +58,8 @@ function Main() {
           </div>
         ))}
       </div>
-      <Growth />
+      <CalcutaionCoin />
+      {/* <Growth /> */}
     </div>
   );
 }

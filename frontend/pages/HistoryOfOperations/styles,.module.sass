@@ -1,0 +1,135 @@
+.container 
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+  background-size: cover !important
+  background-position: center !important
+  height: 100% !important
+  width: 100% !important
+  
+  
+.transactionItem
+  border: 1px solid rgba(0, 0, 0, 0.1)
+  border-radius: 10px
+  margin: 1em
+  list-style: none
+  padding: 1em
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5)
+  cursor: pointer
+  background: white
+  
+.added
+  color: rgb(21, 174, 10)
+
+.withdrew
+  color: rgb(210, 13, 13)
+
+.p 
+  font-size: 40px
+  text-transform: uppercase
+  text-align: center
+  line-height: 1
+  margin-top: 25px
+  margin-bottom: 40px
+  font-family: 'Work Sans', sans-serif
+  font-weight: 800
+
+
+.fancy 
+  position: relative
+  white-space: nowrap
+  &:after 
+    --deco-height: 0.3125em
+    content: ""
+    position: absolute
+    left: 0
+    right: 0
+    bottom: calc(var(--deco-height) * -0.625)
+    height: var(--deco-height)
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A")
+    background-size: auto 100%
+    background-repeat: round
+    background-position: 0em
+  
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300700900&display=swap")
+
+.header 
+  font-family: "Exo 2", sans-serif
+  max-width: 1200px
+  margin: 0 auto
+  padding: 1rem
+  display: flex
+  align-items: center
+  justify-content: center
+  height: calc(100vh - 14rem)
+
+
+.title_wrapper
+  display: grid
+  align-items: center
+  justify-content: center
+  transform: skew(0, -10deg)
+
+
+.top_title
+  order: 1
+  text-align: center
+  display: block
+  color: #fff
+  font-size: clamp(1rem, 4vw, 1.5rem)
+  margin-bottom: 1rem
+  padding-right: 2rem
+
+
+.bottom_title
+  order: 3
+  text-align: center
+  display: block
+  color: #fff
+  font-size: clamp(1rem, 4vw, 1.5rem)
+  margin-top: 2rem
+  padding-left: 2rem
+
+
+.swee_title 
+  order: 2
+  color: #000000
+  font-weight: 900
+  text-transform: uppercase
+  font-size: clamp(3rem, 10vw, 6rem)
+  line-height: 0.75em
+  text-align: center
+  text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff,
+
+
+  span 
+    display: block
+    position: relative
+
+    &:before 
+      content: attr(data-text)
+      position: absolute
+      text-shadow: 2px 2px 1px #e94aa1, -1px -1px 1px #c736f9, -2px 2px 1px #e94aa1, 1px -1px 1px #f736f9
+      z-index: 1
+    
+
+    &:nth-child(1) 
+      padding-right: 2.25rem
+    
+
+    &:nth-child(2) 
+      padding-left: 2.25rem
+    
+  
+
+
+.disclaimer 
+  width: 100%
+  height: 2rem
+  text-align: center
+  color: #fff
+
+  a 
+    color: #fff
+  
+
