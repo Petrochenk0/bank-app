@@ -28,4 +28,8 @@ export class BalanceService {
     await this.transactionRepository.save(transaction);
     return transaction; // Возвращаем созданную транзакцию
   }
+
+  async getTransactionHistory(username: string) {
+    return await this.transactionRepository.find({ where: { username } });
+  }
 }
