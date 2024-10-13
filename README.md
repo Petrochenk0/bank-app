@@ -4,7 +4,7 @@ Welcome to **BANK application**, your ultimate banking application powered by NE
 
 ---
 
-[](https://github.com/user-attachments/assets/382b7b10-89a7-42d9-b5ae-b14f3d9f7312)
+[](https://github.com/user-attachments/assets/7a546127-9951-4086-a607-71272a861e2f)
 
 ---
 
