@@ -21,6 +21,8 @@ Welcome to **BANK application**, your ultimate banking application powered by NE
 - Nest.js: A PostgreSQL database backend will be bolted to this application
 - Redux-toolkit: Context Api will be replaced by a cooler state manager
 
+[Bank](https://github.com/Petrochenk0/bank-app/issues/2#issue-2583896254)
+
 ## Contributing
 
 We welcome contributions from the community to improve! Feel free to submit bug reports, feature requests, or pull requests to make the app even better.
