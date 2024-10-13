@@ -4,7 +4,7 @@ Welcome to **BANK application**, your ultimate banking application powered by NE
 
 ---
 
-[](https://github.com/Petrochenk0/bank-app/issues/3#issue-2584103585)
+[](https://github.com/user-attachments/assets/382b7b10-89a7-42d9-b5ae-b14f3d9f7312)
 
 ---
 
