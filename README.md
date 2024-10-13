@@ -20,9 +20,9 @@ Welcome to **BANK application**, your ultimate banking application powered by NE
 - Podman: This application will be packaged in a container
 - Nest.js: A PostgreSQL database backend will be bolted to this application
 - Redux-toolkit: Context Api will be replaced by a cooler state manager
-
+---
 [](https://github.com/user-attachments/assets/6473d066-2b13-4c3f-b131-3f14826b970d)
-
+---
 ## Contributing
 
 We welcome contributions from the community to improve! Feel free to submit bug reports, feature requests, or pull requests to make the app even better.
