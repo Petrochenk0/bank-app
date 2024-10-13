@@ -4,9 +4,8 @@ Welcome to **BANK application**, your ultimate banking application powered by NE
 
 ---
 
-<video width="100%" height="100%" controls autoplay>
-  <source src="https://github.com/user-attachments/assets/6473d066-2b13-4c3f-b131-3f14826b970d" type="video/mp4">
-</video>
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1" frameborder="0" allowfullscreen></iframe>
+
 ---
 
 ## Features
